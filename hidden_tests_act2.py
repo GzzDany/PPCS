@@ -70,5 +70,5 @@ def sol_billetes_monedas(cantidad):
 def input_billetes_monedas(num_tests=15):
   input_values = [[]]*num_tests
   from random import choices 
-  input_args = [{"cantidad":cantidad} for cantidad in choices(range(600, 10000) k=num_tests)]
+  input_args = [{"cantidad":cantidad} for cantidad in choices(range(600, 10000), k=num_tests)]
   return input_values, input_args
