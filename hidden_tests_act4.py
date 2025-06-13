@@ -29,7 +29,7 @@ def input_precio_hotel_perros(num_tests=15):
   input_values = [[]]*num_tests 
   from random import choices, choice
   razas = ["poodle", "chihuahua", "yorkshire", "pug", "beagle", "dalmata"]
-  input_args = [{"num_dias":num_dias, "raza":raza, "peso":peso, "caminata_diaria":cam, "sesiones_entrenamiento":num_dias//choice(range(1, num_dias))} 
+  input_args = [{"num_dias":num_dias, "raza":raza, "peso":peso, "caminata_diaria":cam, "sesiones_entrenamiento":num_dias//choice(range(1, num_dias))-choice([0, 1])} 
                 for num_dias, raza, peso, cam in zip(choices(range(2, 10), k=num_tests), 
                                                      choices(razas, k=num_tests), 
                                                      choices(range(5, 55), k=num_tests), 
