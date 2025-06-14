@@ -69,7 +69,7 @@ def sol_mediana(numeros):
         ind = len(numeros)//2
         print(f"La mediana es: {numeros[ind]}")
 
-  def input_mediana(num_tests=15):
+def input_mediana(num_tests=15):
     input_values = [[]]*num_tests 
     from random import choices 
     input_args = [{"numeros":choices(range(1, 50), k=length)} for length in choices(range(7, 15), k=num_tests)]
