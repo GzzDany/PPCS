@@ -108,9 +108,9 @@ def input_formato_fecha(num_tests=15):
       fecha += str(mes)
     fecha += "/"
     if dia < 10:
-      fecha += "/0" + str(dia)
+      fecha += "0" + str(dia)
     else:
-      fecha += "/" + str(dia)
+      fecha +=  str(dia)
     fecha += "/" + str(anio)
     input_args.append({"fecha":fecha})
   return input_values, input_args
