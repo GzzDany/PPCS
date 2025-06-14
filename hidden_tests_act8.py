@@ -10,7 +10,7 @@ def input_palabra_en_texto(num_tests=15):
   input_values = [[]]*num_tests 
   words = ["hola", "si", "no", "yo", "ty", "cuando", "dijo", "el", "ella", "nosotros"]
   from random import choices, choice
-  input_args = [{"texto":" ".join(choices(words), k=length), "palabra":choice(words)} for length in choices(range(10, 20), k=num_tests)]
+  input_args = [{"texto":" ".join(choices(words, k=length)), "palabra":choice(words)} for length in choices(range(10, 20), k=num_tests)]
   return input_values, input_args
 
 def sol_letra_mas_comun(texto):
