@@ -252,3 +252,19 @@ def compare_interactive_function(act_name, func_name, global_vars, arg_name=True
         assert exp_interaction == real_interaction, message + error_message_simple(exp_interaction, real_interaction, func_name, arg_name=arg_name, **arg)
         # assert exp_interaction == real_interaction, message + "Your function returned: \n" + real_interaction + "\n\nExpected: \n" + exp_interaction
     return
+
+
+def count_comparisons(func):
+    import ast
+    import inspect
+    tree = ast.parse(inspect.getsource(func))
+    boolean_count = sum([1 for node in ast.walk(tree) if isinstance(node, ast.Compare)])
+    return boolean_count
+
+def check_comparisons(func_name, globals):
+    func = global_vars[func_name]
+    max_comparisons = 2
+    comparisons = count_comparisons(func)
+    assert comparisons <= max_comparisons, "Tu función usa más de 2 comparaciones."
+    
+    
