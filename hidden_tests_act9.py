@@ -86,12 +86,34 @@ def sol_formato_fecha(fecha):
     dia =  str(int(fecha[3:5])) + " de " + conversion_mes[int(fecha[0:2])] + ", " + fecha[-4:] #int para covertir en número entero
     return dia
 
+# def input_formato_fecha(num_tests=15):
+#   input_values = [[]]*num_tests 
+#   from random import choice 
+#   input_args = [{"fecha":str(choice(range(1, 13)))+"/"+str(choice(range(1, 25)))+"/"+str(choice(range(1990, 2025)))} for i in range(num_tests)]
+#   return input_values, input_args
+
+
 def input_formato_fecha(num_tests=15):
   input_values = [[]]*num_tests 
   from random import choice 
-  input_args = [{"fecha":str(choice(range(1, 13)))+"/"+str(choice(range(1, 25)))+"/"+str(choice(range(1990, 2025)))} for i in range(num_tests)]
+  input_args = []
+  for i in range(num_tests):
+    fecha = ""
+    mes = choice(range(1, 13))
+    dia = choice(range(1, 25))
+    anio = choice(range(1990, 2025))
+    if mes < 10:
+      fecha += "0" + str(mes)
+    else:
+      fecha += str(mes)
+    fecha += "/"
+    if dia < 10:
+      fecha += "/0" + str(dia)
+    else:
+      fecha += "/" + str(dia)
+    fecha += "/" + str(anio)
+    input_args.append({"fecha":fecha})
   return input_values, input_args
-
 
 
 def sol_contar_frecuencias_letras(texto):
